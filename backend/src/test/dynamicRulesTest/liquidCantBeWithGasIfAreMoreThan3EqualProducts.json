@@ -1,0 +1,30 @@
+[
+  {
+    "predicates": [
+      {
+        "key": "estado",
+        "value": "liquido",
+        "arithmeticOperator": "",
+        "compareOperator": "contains",
+        "objectClass": "stringAttribute"
+      },
+      {
+        "key": "estado",
+        "value": "gaseoso",
+        "arithmeticOperator": "",
+        "compareOperator": "contains",
+        "objectClass": "stringAttribute"
+      },
+      {
+        "key": "maxProductQuantity",
+        "value": 3,
+        "arithmeticOperator": "+",
+        "compareOperator": ">",
+        "objectClass": "cart"
+      }
+    ],
+    "predicatesRelation": "NOT AND",
+    "scope": "order",
+    "messageError": "Un mismo pedido no puede combinar productos líquidos y gaseosos si tiene más de 3 productos iguales"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "predicates": [
+      {
+        "key": "quantity",
+        "value": 3,
+        "arithmeticOperator": "+",
+        "compareOperator": "<=",
+        "objectClass": "cart"
+      }
+    ],
+    "predicatesRelation": "AND",
+    "scope": "product",
+    "messageError": "No se pueden incluir más de 3 productos en un mismo pedido"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "predicates": [
+      {
+        "key": "Electronic",
+        "value": "Electronic",
+        "arithmeticOperator": "",
+        "compareOperator": "contains",
+        "objectClass": "alternative"
+      },
+      {
+        "key": "Home",
+        "value": "Home",
+        "arithmeticOperator": "",
+        "compareOperator": "contains",
+        "objectClass": "alternative"
+      }
+    ],
+    "predicatesRelation": "NOT AND",
+    "scope": "order",
+    "messageError": "Un mismo pedido no puede combinar productos de electronica y hogar"
+  },
+  {
+    "predicates": [
+      {
+        "key": "peso",
+        "value": 10,
+        "arithmeticOperator": "+",
+        "compareOperator": "<=",
+        "objectClass": "numericAttribute"
+      }
+    ],
+    "predicatesRelation": "AND",
+    "scope": "product",
+    "messageError": "El pedido debe tener un peso menor a 10kg"
+  },
+  {
+    "predicates": [
+      {
+        "key": "estado",
+        "value": "liquido",
+        "arithmeticOperator": "",
+        "compareOperator": "contains",
+        "objectClass": "stringAttribute"
+      },
+      {
+        "key": "estado",
+        "value": "gaseoso",
+        "arithmeticOperator": "",
+        "compareOperator": "contains",
+        "objectClass": "stringAttribute"
+      }
+    ],
+    "predicatesRelation": "NOT AND",
+    "scope": "order",
+    "messageError": "Un mismo pedido no puede combinar productos líquidos y gaseosos"
+  }
+]

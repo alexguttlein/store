@@ -1,0 +1,318 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > OrderController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ar.uba.fi.ingsoft1.order</a>
+</div>
+
+<h1>Coverage Summary for Class: OrderController (ar.uba.fi.ingsoft1.order)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">OrderController</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/63)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ar.uba.fi.ingsoft1.order;
+&nbsp;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.data.domain.Page;
+&nbsp;import org.springframework.http.HttpStatus;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.CrossOrigin;
+&nbsp;import org.springframework.web.bind.annotation.GetMapping;
+&nbsp;import org.springframework.web.bind.annotation.PathVariable;
+&nbsp;import org.springframework.web.bind.annotation.PostMapping;
+&nbsp;import org.springframework.web.bind.annotation.RequestMapping;
+&nbsp;import org.springframework.web.bind.annotation.RequestParam;
+&nbsp;import org.springframework.web.bind.annotation.RestController;
+&nbsp;import io.swagger.v3.oas.annotations.Operation; 
+&nbsp;import io.swagger.v3.oas.annotations.responses.ApiResponse; 
+&nbsp;import io.swagger.v3.oas.annotations.responses.ApiResponses;
+&nbsp;
+&nbsp;import ar.uba.fi.ingsoft1.authorization.RequiresPrivilege;
+&nbsp;import ar.uba.fi.ingsoft1.authorization.AuthorizationContext;
+&nbsp;import ar.uba.fi.ingsoft1.authorization.AuthorizationService;
+&nbsp;import ar.uba.fi.ingsoft1.authorization.RequiresPrivilege;
+&nbsp;import ar.uba.fi.ingsoft1.exception.EntityNotFoundException;
+&nbsp;import io.jsonwebtoken.Claims;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;
+&nbsp;@RestController
+&nbsp;@CrossOrigin(origins = &quot;http://localhost:3000&quot;)
+&nbsp;@RequestMapping(&quot;/orders&quot;)
+&nbsp;@RequiredArgsConstructor
+&nbsp;public class OrderController {
+&nbsp;    @Autowired
+&nbsp;    private OrderService orderService;
+&nbsp;    @Autowired
+&nbsp;    private AuthorizationService authorizationService;
+&nbsp;
+&nbsp;    @Operation(summary = &quot;Get orders by user ID (or all orders if admin)&quot;) 
+&nbsp;    @ApiResponses(value = { 
+&nbsp;        @ApiResponse(responseCode = &quot;200&quot;, description = &quot;List of orders&quot;) 
+&nbsp;    })
+&nbsp;    @GetMapping
+&nbsp;    @RequiresPrivilege(&quot;user&quot;)
+&nbsp;    public ResponseEntity&lt;Page&lt;OrderDTO&gt;&gt; getOrdersForUser(
+&nbsp;        @RequestParam(defaultValue = &quot;0&quot;) int pageNo,
+&nbsp;        @RequestParam(defaultValue = &quot;9&quot;) int pageSize) {
+<b class="nc">&nbsp;            Claims claims = AuthorizationContext.getClaims();</b>
+<b class="nc">&nbsp;            Long userId = claims.get(&quot;userId&quot;, Long.class);</b>
+&nbsp;
+<b class="nc">&nbsp;            if (authorizationService.hasPrivilege(claims, &quot;admin&quot;)){</b>
+<b class="nc">&nbsp;                return ResponseEntity.ok(orderService.getOrders(pageNo, pageSize));</b>
+&nbsp;            }
+&nbsp;            
+<b class="nc">&nbsp;            return ResponseEntity.ok(orderService.getOrdersForUser(userId, pageNo, pageSize));</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    @Operation(summary = &quot;Get all confirmed orders by user ID (or all confirmed if admin)&quot;, 
+&nbsp;    responses = { 
+&nbsp;        @ApiResponse(responseCode = &quot;200&quot;, description = &quot;List of confirmed orders&quot;), 
+&nbsp;        @ApiResponse(responseCode = &quot;401&quot;, ref = &quot;#/components/responses/401&quot;), 
+&nbsp;        @ApiResponse(responseCode = &quot;403&quot;, ref = &quot;#/components/responses/403&quot;)
+&nbsp;    })    
+&nbsp;    @GetMapping(&quot;/confirmed&quot;)
+&nbsp;    @RequiresPrivilege(&quot;user&quot;)
+&nbsp;    public ResponseEntity&lt;Page&lt;OrderDTO&gt;&gt; getConfirmedOrdersForUser(
+&nbsp;        @RequestParam(defaultValue = &quot;0&quot;) int pageNo,
+&nbsp;        @RequestParam(defaultValue = &quot;9&quot;) int pageSize) {
+<b class="nc">&nbsp;            Claims claims = AuthorizationContext.getClaims();</b>
+<b class="nc">&nbsp;            Long userId = claims.get(&quot;userId&quot;, Long.class);</b>
+&nbsp;
+<b class="nc">&nbsp;            if (authorizationService.hasPrivilege(claims, &quot;admin&quot;)){</b>
+<b class="nc">&nbsp;                return ResponseEntity.ok(orderService.getConfirmedOrders(pageNo, pageSize));</b>
+&nbsp;            }
+&nbsp;            
+<b class="nc">&nbsp;            return ResponseEntity.ok(orderService.getAllConfirmedOrdersForUser(userId, pageNo, pageSize));</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    @GetMapping(&quot;/processed&quot;)
+&nbsp;    @RequiresPrivilege(&quot;user&quot;)
+&nbsp;    public ResponseEntity&lt;Page&lt;OrderDTO&gt;&gt; getProcessedOrdersForUser(
+&nbsp;        @RequestParam(defaultValue = &quot;0&quot;) int pageNo,
+&nbsp;        @RequestParam(defaultValue = &quot;9&quot;) int pageSize) {
+<b class="nc">&nbsp;            Claims claims = AuthorizationContext.getClaims();</b>
+<b class="nc">&nbsp;            Long userId = claims.get(&quot;userId&quot;, Long.class);</b>
+&nbsp;
+<b class="nc">&nbsp;            if (authorizationService.hasPrivilege(claims, &quot;admin&quot;)){</b>
+<b class="nc">&nbsp;                return ResponseEntity.ok(orderService.getProcessedOrders(pageNo, pageSize));</b>
+&nbsp;            }
+&nbsp;            
+<b class="nc">&nbsp;            return ResponseEntity.ok(orderService.getAllProcessedOrdersForUser(userId, pageNo, pageSize));</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    @GetMapping(&quot;/sent&quot;)
+&nbsp;    @RequiresPrivilege(&quot;user&quot;)
+&nbsp;    public ResponseEntity&lt;Page&lt;OrderDTO&gt;&gt; getSentOrdersForUser(
+&nbsp;        @RequestParam(defaultValue = &quot;0&quot;) int pageNo,
+&nbsp;        @RequestParam(defaultValue = &quot;9&quot;) int pageSize) {
+<b class="nc">&nbsp;            Claims claims = AuthorizationContext.getClaims();</b>
+<b class="nc">&nbsp;            Long userId = claims.get(&quot;userId&quot;, Long.class);</b>
+&nbsp;
+<b class="nc">&nbsp;            if (authorizationService.hasPrivilege(claims, &quot;admin&quot;)){</b>
+<b class="nc">&nbsp;                return ResponseEntity.ok(orderService.getSentOrders(pageNo, pageSize));</b>
+&nbsp;            }
+&nbsp;            
+<b class="nc">&nbsp;            return ResponseEntity.ok(orderService.getAllSentOrdersForUser(userId, pageNo, pageSize));</b>
+&nbsp;        }
+&nbsp;        
+&nbsp;    @GetMapping(&quot;/{orderId}&quot;)
+&nbsp;    @RequiresPrivilege(&quot;user&quot;)
+&nbsp;    public ResponseEntity&lt;OrderDTO&gt; getOrder(
+&nbsp;        @PathVariable Long orderId) {
+&nbsp;        try {
+<b class="nc">&nbsp;            Claims claims = AuthorizationContext.getClaims();</b>
+<b class="nc">&nbsp;            Long userId = claims.get(&quot;userId&quot;, Long.class);</b>
+&nbsp;            
+<b class="nc">&nbsp;            var order = orderService.getSingleOrder(orderId);</b>
+&nbsp;            
+<b class="nc">&nbsp;            if (!order.idOwner().equals(userId)) {</b>
+<b class="nc">&nbsp;                return new ResponseEntity&lt;&gt;(HttpStatus.FORBIDDEN);</b>
+&nbsp;            }
+&nbsp;        
+<b class="nc">&nbsp;            return new ResponseEntity&lt;&gt;(order, HttpStatus.OK); </b>
+&nbsp;        
+<b class="nc">&nbsp;        } catch (EntityNotFoundException e) {</b>
+<b class="nc">&nbsp;            return new ResponseEntity&lt;&gt;(HttpStatus.NOT_FOUND); </b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;     
+&nbsp;    @GetMapping(&quot;/{orderId}/cancel&quot;)
+&nbsp;    @RequiresPrivilege(&quot;user&quot;)
+&nbsp;    public ResponseEntity&lt;Boolean&gt; canOrderBeCanceled(
+&nbsp;                @PathVariable Long orderId) {
+&nbsp;        try {
+<b class="nc">&nbsp;            Claims claims = AuthorizationContext.getClaims();</b>
+<b class="nc">&nbsp;            Long userId = claims.get(&quot;userId&quot;, Long.class);</b>
+<b class="nc">&nbsp;            var order = orderService.getSingleOrder(orderId);</b>
+&nbsp;
+<b class="nc">&nbsp;            if (!order.idOwner().equals(userId)) {</b>
+<b class="nc">&nbsp;                return new ResponseEntity&lt;&gt;(HttpStatus.FORBIDDEN);</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            var res = orderService.canCancelOrder(orderId);</b>
+<b class="nc">&nbsp;            return new ResponseEntity&lt;&gt;(res, HttpStatus.OK);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        catch (EntityNotFoundException e) {</b>
+<b class="nc">&nbsp;            return new ResponseEntity&lt;&gt;(HttpStatus.NOT_FOUND);</b>
+&nbsp;        }
+&nbsp;    } 
+&nbsp;
+&nbsp;    @PostMapping(&quot;/{orderId}/cancel&quot;)
+&nbsp;    @RequiresPrivilege(&quot;user&quot;)
+&nbsp;    public ResponseEntity&lt;?&gt; cancelOrder(
+&nbsp;                        @PathVariable Long orderId) {
+&nbsp;
+<b class="nc">&nbsp;        Claims claims = AuthorizationContext.getClaims();</b>
+<b class="nc">&nbsp;        Long userId = claims.get(&quot;userId&quot;, Long.class);</b>
+&nbsp;        OrderDTO order;
+&nbsp;        try {
+<b class="nc">&nbsp;            order = orderService.getSingleOrder(orderId);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        catch (EntityNotFoundException e) {</b>
+<b class="nc">&nbsp;            return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.NOT_FOUND);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;        if (!order.idOwner().equals(userId)) {</b>
+<b class="nc">&nbsp;            return new ResponseEntity&lt;&gt;(HttpStatus.FORBIDDEN);</b>
+&nbsp;        }
+&nbsp;        
+<b class="nc">&nbsp;        var result = orderService.cancelOrder(orderId);</b>
+<b class="nc">&nbsp;        if (result) {</b>
+<b class="nc">&nbsp;            return ResponseEntity.ok().build();</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            return new ResponseEntity&lt;Void&gt;(HttpStatus.CONFLICT);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @PostMapping(&quot;/{orderId}/dispatch&quot;)
+&nbsp;    @RequiresPrivilege(&quot;admin&quot;)
+&nbsp;    public ResponseEntity&lt;?&gt; markOrderAsSent(
+&nbsp;                            @PathVariable Long orderId){
+&nbsp;        boolean res;
+&nbsp;        try {
+<b class="nc">&nbsp;            res = orderService.markOrderAsSent(orderId);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        catch (EntityNotFoundException e) {</b>
+<b class="nc">&nbsp;            return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.NOT_FOUND);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;        if (res) {</b>
+<b class="nc">&nbsp;            return ResponseEntity.ok().build();</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            return new ResponseEntity&lt;Void&gt;(HttpStatus.CONFLICT);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    @PostMapping(&quot;/{orderId}/process&quot;)
+&nbsp;    @RequiresPrivilege(&quot;admin&quot;)
+&nbsp;    public ResponseEntity&lt;?&gt; markOrderAsProcessed(@PathVariable Long orderId){
+&nbsp;        boolean res;
+&nbsp;        try {
+<b class="nc">&nbsp;            res = orderService.markOrderAsProcessed(orderId);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        catch (EntityNotFoundException e) {</b>
+<b class="nc">&nbsp;            return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.NOT_FOUND);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;        if (res) {</b>
+<b class="nc">&nbsp;            return ResponseEntity.ok().build();</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            return new ResponseEntity&lt;Void&gt;(HttpStatus.CONFLICT);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-25 23:48</div>
+</div>
+</body>
+</html>

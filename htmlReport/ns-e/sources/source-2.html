@@ -1,0 +1,130 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > SpringDocConfig</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ar.uba.fi.ingsoft1.swagger</a>
+</div>
+
+<h1>Coverage Summary for Class: SpringDocConfig (ar.uba.fi.ingsoft1.swagger)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SpringDocConfig</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ar.uba.fi.ingsoft1.swagger;
+&nbsp;
+&nbsp;import org.springframework.context.annotation.Bean;
+&nbsp;import org.springframework.context.annotation.Configuration;
+&nbsp;
+&nbsp;import io.swagger.v3.oas.models.OpenAPI;
+&nbsp;import io.swagger.v3.oas.models.info.Info;
+&nbsp;import io.swagger.v3.oas.models.responses.ApiResponse;
+&nbsp;import io.swagger.v3.oas.models.Components;
+&nbsp;
+&nbsp;@Configuration
+<b class="nc">&nbsp;public class SpringDocConfig {</b>
+&nbsp;
+&nbsp;    @Bean
+&nbsp;    public OpenAPI openAPI() {
+<b class="nc">&nbsp;        return new OpenAPI()</b>
+<b class="nc">&nbsp;        .components(new Components()</b>
+<b class="nc">&nbsp;                .addResponses(&quot;401&quot;, new ApiResponse().description(&quot;Unauthorized - Must log in as apropiate user&quot;))</b>
+<b class="nc">&nbsp;                .addResponses(&quot;403&quot;, new ApiResponse().description(&quot;Forbidden - need to be administrator to access&quot;))</b>
+<b class="nc">&nbsp;            ).info(new Info()</b>
+<b class="nc">&nbsp;            .title(&quot;IngSoft Shopper&quot;)</b>
+<b class="nc">&nbsp;            .description(&quot;tp de ingsoft del grupo 11&quot;)</b>
+<b class="nc">&nbsp;            .version(&quot;v0.0.1&quot;));</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-25 23:48</div>
+</div>
+</body>
+</html>

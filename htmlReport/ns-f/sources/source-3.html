@@ -1,0 +1,222 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > UserController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ar.uba.fi.ingsoft1.user</a>
+</div>
+
+<h1>Coverage Summary for Class: UserController (ar.uba.fi.ingsoft1.user)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UserController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    25%
+  </span>
+  <span class="absValue">
+    (1/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    46.3%
+  </span>
+  <span class="absValue">
+    (19/41)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ar.uba.fi.ingsoft1.user;
+&nbsp;
+&nbsp;import org.springframework.http.HttpStatus;
+&nbsp;import org.springframework.http.HttpStatusCode;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.PostMapping;
+&nbsp;import org.springframework.web.bind.annotation.RequestBody;
+&nbsp;import org.springframework.web.bind.annotation.RequestHeader;
+&nbsp;import org.springframework.web.bind.annotation.RequestMapping;
+&nbsp;import org.springframework.web.bind.annotation.RestController;
+&nbsp;import org.springframework.web.bind.annotation.*;
+&nbsp;import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+&nbsp;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;
+&nbsp;import io.jsonwebtoken.Claims;
+&nbsp;
+&nbsp;import java.nio.charset.StandardCharsets;
+&nbsp;import java.util.Base64;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.Map;
+&nbsp;
+&nbsp;import ar.uba.fi.ingsoft1.authorization.JwtHandler;
+&nbsp;import ar.uba.fi.ingsoft1.authorization.AuthorizationService;
+&nbsp;import ar.uba.fi.ingsoft1.authorization.RequiresPrivilege;
+&nbsp;
+&nbsp;
+&nbsp;@RestController
+&nbsp;@CrossOrigin(origins = &quot;http://localhost:3000&quot;) 
+&nbsp;@RequiredArgsConstructor
+&nbsp;class UserController {
+&nbsp;    private final UserService userService;
+&nbsp;    private final JwtHandler jwtHandler;
+&nbsp;    private final AuthorizationService authorizationService;
+&nbsp;
+&nbsp;    @PostMapping
+&nbsp;    @RequestMapping(&quot;/login&quot;)
+&nbsp;    // Todo: Cambie UserDto por ? para mandar error en el body, despues revertir si
+&nbsp;    // hace falta
+&nbsp;    public ResponseEntity&lt;?&gt; loginUser(
+&nbsp;            @RequestHeader(value = &quot;Authorization&quot;, required = false) String authHeader) {
+&nbsp;
+<b class="fc">&nbsp;        if (authHeader == null || authHeader.isBlank()) {</b>
+<b class="fc">&nbsp;            Map&lt;String, String&gt; errorResponse = new HashMap&lt;&gt;();</b>
+<b class="fc">&nbsp;            errorResponse.put(&quot;message&quot;, &quot;Missing authorization header&quot;);</b>
+<b class="fc">&nbsp;            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        String encodedCredentials = authHeader.substring(&quot;Basic &quot;.length());</b>
+<b class="fc">&nbsp;        byte[] decodedBytes = Base64.getDecoder().decode(encodedCredentials);</b>
+<b class="fc">&nbsp;        String credentials = new String(decodedBytes, StandardCharsets.UTF_8);</b>
+<b class="fc">&nbsp;        String[] values = credentials.split(&quot;:&quot;, 2);</b>
+<b class="fc">&nbsp;        String email = values[0];</b>
+<b class="fc">&nbsp;        String decodedPassword = values[1];</b>
+<b class="fc">&nbsp;        var hasher = new BCryptPasswordEncoder();</b>
+&nbsp;
+<b class="fc">&nbsp;        User user = userService.getUser(email).orElse(null);</b>
+&nbsp;
+<b class="fc">&nbsp;        if (user == null) {</b>
+<b class="nc">&nbsp;            Map&lt;String, String&gt; errorResponse = new HashMap&lt;&gt;(); // TODO: Temporal para que el front no se rompa</b>
+<b class="nc">&nbsp;            errorResponse.put(&quot;message&quot;, &quot;Invalid credentials. Please try again.&quot;);</b>
+<b class="nc">&nbsp;            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        if (!hasher.matches(decodedPassword, user.getPasswordHash())) {</b>
+<b class="nc">&nbsp;            Map&lt;String, String&gt; errorResponse = new HashMap&lt;&gt;(); // TODO: Temporal para que el front no se rompa</b>
+<b class="nc">&nbsp;            errorResponse.put(&quot;message&quot;, &quot;Invalid credentials. Please try again.&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        Map&lt;String, Object&gt; responseBody = new HashMap&lt;&gt;(); // TODO: Temporal para que el front no se rompa</b>
+<b class="fc">&nbsp;        responseBody.put(&quot;message&quot;, &quot;Login successful&quot;);</b>
+<b class="fc">&nbsp;        String jwt = jwtHandler.generateToken(email, user.getId(), user.getRole());</b>
+&nbsp;
+<b class="fc">&nbsp;        responseBody.put(&quot;token&quot;, jwt);</b>
+<b class="fc">&nbsp;        return ResponseEntity.ok(responseBody);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PostMapping
+&nbsp;    @RequestMapping(&quot;/register&quot;)
+&nbsp;    public ResponseEntity&lt;?&gt; registerUser(@RequestBody UserDTO userDTO) {
+&nbsp;        try {
+<b class="nc">&nbsp;            UserDTO newUser = userService.createUser(userDTO);</b>
+<b class="nc">&nbsp;            return ResponseEntity.ok(newUser);</b>
+<b class="nc">&nbsp;        } catch (IllegalArgumentException e) {</b>
+<b class="nc">&nbsp;            Map&lt;String, String&gt; errorResponse = new HashMap&lt;&gt;();</b>
+<b class="nc">&nbsp;            errorResponse.put(&quot;message&quot;, e.getMessage());</b>
+&nbsp;
+<b class="nc">&nbsp;            return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @PostMapping
+&nbsp;    @RequiresPrivilege(&quot;admin&quot;)
+&nbsp;    @RequestMapping(&quot;/admins&quot;)
+&nbsp;    public ResponseEntity&lt;Map&lt;String, String&gt;&gt; registerAdmin(@RequestBody AdminDTO adminDTO) {
+<b class="nc">&nbsp;        Map&lt;String, String&gt; response = new HashMap&lt;&gt;();</b>
+&nbsp;        
+&nbsp;        try {
+<b class="nc">&nbsp;            AdminDTO newUser = userService.createAdmin(adminDTO);</b>
+<b class="nc">&nbsp;            response.put(&quot;message&quot;, &quot;Admin created successfully&quot;);</b>
+<b class="nc">&nbsp;            return ResponseEntity.ok(response);</b>
+&nbsp;
+<b class="nc">&nbsp;        } catch (IllegalArgumentException e) {</b>
+<b class="nc">&nbsp;            response.put(&quot;message&quot;, e.getMessage());</b>
+<b class="nc">&nbsp;            return ResponseEntity.status(HttpStatus.CONFLICT).body(response);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping
+&nbsp;    @RequiresPrivilege(&quot;admin&quot;)
+&nbsp;    @RequestMapping(&quot;/privileges&quot;)
+&nbsp;    public ResponseEntity&lt;Map&lt;String, String&gt;&gt; privileges() {
+<b class="nc">&nbsp;        Map&lt;String, String&gt; response = new HashMap&lt;&gt;();</b>
+<b class="nc">&nbsp;        response.put(&quot;message&quot;, &quot;Valid privileges&quot;);</b>
+<b class="nc">&nbsp;        return ResponseEntity.ok(response);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-25 23:48</div>
+</div>
+</body>
+</html>

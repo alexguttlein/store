@@ -1,0 +1,228 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ProductService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ar.uba.fi.ingsoft1.product</a>
+</div>
+
+<h1>Coverage Summary for Class: ProductService (ar.uba.fi.ingsoft1.product)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ProductService</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/44)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ar.uba.fi.ingsoft1.product;
+&nbsp;
+&nbsp;import ar.uba.fi.ingsoft1.alternative.Alternative;
+&nbsp;import ar.uba.fi.ingsoft1.alternative.AlternativeRepository;
+&nbsp;import ar.uba.fi.ingsoft1.attribute.Attribute;
+&nbsp;import ar.uba.fi.ingsoft1.attribute.AttributeRepository;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;import org.springframework.transaction.annotation.Transactional;
+&nbsp;
+&nbsp;import org.springframework.data.domain.Page;
+&nbsp;import org.springframework.data.domain.PageRequest;
+&nbsp;import org.springframework.data.domain.Pageable;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;import static java.util.Objects.isNull;
+&nbsp;
+&nbsp;@Service
+&nbsp;@Transactional
+&nbsp;@RequiredArgsConstructor
+&nbsp;public class ProductService {
+&nbsp;    @Autowired
+&nbsp;    private ProductRepository productRepository;
+&nbsp;    @Autowired
+&nbsp;    private AttributeRepository attributeRepository;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private AlternativeRepository alternativeRepository;
+&nbsp;
+&nbsp;    //crear nuevo producto
+&nbsp;    public ProductDTO createProduct(ProductCreateDTO data) {
+<b class="nc">&nbsp;        Set&lt;Attribute&gt; attributes = null;</b>
+<b class="nc">&nbsp;        if (data.attributeIds() != null &amp;&amp; !data.attributeIds().isEmpty()) {</b>
+<b class="nc">&nbsp;            attributes = data.attributeIds().stream()</b>
+<b class="nc">&nbsp;                    .map(id -&gt; attributeRepository.findById(id)</b>
+<b class="nc">&nbsp;                            .orElseThrow(() -&gt; new RuntimeException(&quot;Attribute not found with id: &quot; + id)))</b>
+<b class="nc">&nbsp;                    .collect(Collectors.toSet());</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        Alternative alternative = null;</b>
+<b class="nc">&nbsp;        if (data.alternativeId() != null) {</b>
+<b class="nc">&nbsp;            alternative = alternativeRepository.findById(data.alternativeId())</b>
+<b class="nc">&nbsp;                    .orElseThrow(() -&gt; new RuntimeException(&quot;Variant not found with id: &quot; + data.alternativeId()));</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        Product product = new Product(data.productName(), data.stock(), attributes, alternative);</b>
+<b class="nc">&nbsp;        return new ProductDTO(productRepository.save(product));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Método para obtener todos los productos con paginacion
+&nbsp;    public Page&lt;ProductDTO&gt; getProducts(int pageNo, int pageSize) {
+<b class="nc">&nbsp;        Pageable pageable = PageRequest.of(pageNo, pageSize);</b>
+&nbsp;
+<b class="nc">&nbsp;        return productRepository.findAll(pageable).map(ProductDTO::new);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //obtener todos los productos
+&nbsp;    public List&lt;ProductDTO&gt; getAllProducts() {
+<b class="nc">&nbsp;        return productRepository.findAll().stream()</b>
+<b class="nc">&nbsp;                .map(ProductDTO::new)</b>
+<b class="nc">&nbsp;                .toList();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //obtener producto por id
+&nbsp;    public ProductDTO getProductById(Long id) {
+<b class="nc">&nbsp;        Product product = productRepository.findById(id)</b>
+<b class="nc">&nbsp;                .orElseThrow(() -&gt; new RuntimeException(&quot;Product not found with id: &quot; + id));</b>
+<b class="nc">&nbsp;        return new ProductDTO(product);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //obtener productos por id de la alternativa
+&nbsp;    public List&lt;ProductDTO&gt; getProductsByAlternativeId(Long id) {
+<b class="nc">&nbsp;        return productRepository.findAllByAlternativeId(id).stream()</b>
+<b class="nc">&nbsp;                .map(ProductDTO::new)</b>
+<b class="nc">&nbsp;                .toList();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //eliminar producto por id
+&nbsp;    public void deleteProduct(Long id) {
+<b class="nc">&nbsp;        if (!productRepository.existsById(id)) {</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;Product not found with id: &quot; + id);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        productRepository.deleteById(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //modificar producto por id
+&nbsp;    public ProductDTO updateProduct(Long id, ProductCreateDTO data) {
+<b class="nc">&nbsp;        Product product = productRepository.findById(id)</b>
+<b class="nc">&nbsp;                .orElseThrow(() -&gt; new RuntimeException(&quot;Product not found with id: &quot; + id));</b>
+&nbsp;
+<b class="nc">&nbsp;        if (!isNull(data.productName())) product.setProductName(data.productName());</b>
+&nbsp;
+<b class="nc">&nbsp;        if (!isNull(data.stock())) product.setStock(data.stock());</b>
+&nbsp;
+&nbsp;        // Actualizar attributees si se proporcionan IDs
+<b class="nc">&nbsp;        if (data.attributeIds() != null) {</b>
+<b class="nc">&nbsp;            Set&lt;Attribute&gt; attributes = data.attributeIds().stream()</b>
+<b class="nc">&nbsp;                    .map(attributeId -&gt; attributeRepository.findById(attributeId)</b>
+<b class="nc">&nbsp;                            .orElseThrow(() -&gt; new RuntimeException(&quot;Attribute not found with id: &quot; + attributeId)))</b>
+<b class="nc">&nbsp;                    .collect(Collectors.toSet());</b>
+<b class="nc">&nbsp;            product.setAttributes(attributes);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // Actualizar la alternativa si se proporciona un ID
+<b class="nc">&nbsp;        if (data.alternativeId() != null) {</b>
+<b class="nc">&nbsp;            Alternative alternative = alternativeRepository.findById(data.alternativeId())</b>
+<b class="nc">&nbsp;                    .orElseThrow(() -&gt; new RuntimeException(&quot;Variant not found with id: &quot; + data.alternativeId()));</b>
+<b class="nc">&nbsp;            product.setAlternative(alternative);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return new ProductDTO(productRepository.save(product));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //recupera los productos cuyo stock sea mayor a cero
+&nbsp;    public List&lt;ProductDTO&gt; getProductsInStock() {
+<b class="nc">&nbsp;        return productRepository.findByStockGreaterThan(0).stream()</b>
+<b class="nc">&nbsp;                .map(ProductDTO::new)</b>
+<b class="nc">&nbsp;                .toList();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-25 23:48</div>
+</div>
+</body>
+</html>

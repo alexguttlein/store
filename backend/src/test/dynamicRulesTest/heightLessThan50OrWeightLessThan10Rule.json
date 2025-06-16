@@ -1,0 +1,23 @@
+[
+  {
+    "predicates": [
+      {
+        "key": "peso",
+        "value": 10,
+        "arithmeticOperator": "+",
+        "compareOperator": "<",
+        "objectClass": "numericAttribute"
+      },
+      {
+        "key": "altura",
+        "value": 50,
+        "arithmeticOperator": "+",
+        "compareOperator": "<",
+        "objectClass": "numericAttribute"
+      }
+    ],
+    "predicatesRelation": "OR",
+    "scope": "product",
+    "messageError": "El pedido debe tener un largo menor a 50cm o un peso menor a 10kg"
+  }
+]

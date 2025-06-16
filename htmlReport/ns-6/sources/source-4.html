@@ -1,0 +1,147 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > RuleLoader</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ar.uba.fi.ingsoft1.dynamicRules</a>
+</div>
+
+<h1>Coverage Summary for Class: RuleLoader (ar.uba.fi.ingsoft1.dynamicRules)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RuleLoader</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    95%
+  </span>
+  <span class="absValue">
+    (19/20)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ar.uba.fi.ingsoft1.dynamicRules;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.core.JsonProcessingException;
+&nbsp;import com.fasterxml.jackson.databind.JsonNode;
+&nbsp;import com.fasterxml.jackson.databind.ObjectMapper;
+&nbsp;
+<b class="nc">&nbsp;public class RuleLoader {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Método que carga una lista de reglas compuestas desde un archivo JSON
+&nbsp;     * @param content contenido del archivo JSON que contiene las reglas a cargar
+&nbsp;     * @return lista de objetos `CompositeRule` cargados desde el JSON
+&nbsp;     * @throws JsonProcessingException si ocurre un error durante el parseo del JSON
+&nbsp;     */
+&nbsp;    public static List&lt;Rule&gt; loadRulesFromJson(String content) throws JsonProcessingException {
+<b class="fc">&nbsp;        ObjectMapper mapper = new ObjectMapper();</b>
+<b class="fc">&nbsp;        var root = mapper.readTree(content);</b>
+<b class="fc">&nbsp;        List&lt;Rule&gt; rules = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="fc">&nbsp;        for (JsonNode ruleNode : root) {</b>
+<b class="fc">&nbsp;            List&lt;Rule&gt; predicates = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="fc">&nbsp;            for (JsonNode predicateNode : ruleNode.get(&quot;predicates&quot;)) {</b>
+<b class="fc">&nbsp;                String key = predicateNode.get(&quot;key&quot;).asText();</b>
+<b class="fc">&nbsp;                Object value = predicateNode.get(&quot;value&quot;).asText();</b>
+<b class="fc">&nbsp;                String arithmeticOperator = predicateNode.get(&quot;arithmeticOperator&quot;).asText();</b>
+<b class="fc">&nbsp;                String compareOperator = predicateNode.get(&quot;compareOperator&quot;).asText();</b>
+<b class="fc">&nbsp;                String objectClass = predicateNode.get(&quot;objectClass&quot;).asText();</b>
+&nbsp;
+<b class="fc">&nbsp;                predicates.add(new PredicateRule(key, value, arithmeticOperator, compareOperator, objectClass));</b>
+<b class="fc">&nbsp;            }</b>
+<b class="fc">&nbsp;            String predicatesRelation = ruleNode.get(&quot;predicatesRelation&quot;).asText();</b>
+<b class="fc">&nbsp;            String scope = ruleNode.get(&quot;scope&quot;).asText();</b>
+<b class="fc">&nbsp;            String messageError = ruleNode.get(&quot;messageError&quot;).asText();</b>
+&nbsp;
+<b class="fc">&nbsp;            rules.add(new CompositeRule(predicates, predicatesRelation, scope, messageError));</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return rules;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-25 23:48</div>
+</div>
+</body>
+</html>

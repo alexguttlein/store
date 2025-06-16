@@ -1,0 +1,16 @@
+[
+  {
+    "predicates": [
+      {
+        "key": "electrodomestic",
+        "value": "2",
+        "arithmeticOperator": "+",
+        "compareOperator": "<",
+        "objectClass": "numericalternative"
+      }
+    ],
+    "predicatesRelation": "AND",
+    "scope": "order",
+    "messageError": "El pedido no puede incluir más de un electrodomestico"
+  }
+]

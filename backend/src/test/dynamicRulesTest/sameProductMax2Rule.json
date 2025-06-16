@@ -1,0 +1,16 @@
+[
+  {
+    "predicates": [
+      {
+        "key": "maxProductQuantity",
+        "value": 2,
+        "arithmeticOperator": "+",
+        "compareOperator": "<=",
+        "objectClass": "cart"
+      }
+    ],
+    "predicatesRelation": "AND",
+    "scope": "product",
+    "messageError": "No se pueden incluir más de 2 productos iguales pedido"
+  }
+]

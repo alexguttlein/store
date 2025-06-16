@@ -1,0 +1,1248 @@
+2024-11-17 18:35:20 [main] INFO  ar.uba.fi.ingsoft1.Application - Starting Application using Java 22.0.2 with PID 32731 (/home/aguss/IdeaProjects/TpGrupo11/backend/target/classes started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 18:35:20 [main] INFO  ar.uba.fi.ingsoft1.Application - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 18:35:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-17 18:35:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 6 JPA repository interfaces.
+2024-11-17 18:35:21 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-11-17 18:35:21 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-11-17 18:35:21 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-17 18:35:21 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-11-17 18:35:21 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-17 18:35:21 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1673 ms
+2024-11-17 18:35:22 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-17 18:35:22 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-17 18:35:22 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-17 18:35:22 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-17 18:35:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-11-17 18:35:22 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:4588712e-e4a2-4601-82c4-31f50f160fbe user=SA
+2024-11-17 18:35:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-11-17 18:35:24 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-17 18:35:24 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier";]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier";]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:575)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:515)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:315)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at ar.uba.fi.ingsoft1.Application.main(Application.java:9)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id)) [42001-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261)
+	at org.h2.command.Parser.readIdentifier(Parser.java:5533)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8994)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 37 common frames omitted
+2024-11-17 18:35:24 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute" via JDBC [Table "ATTRIBUTE" not found;]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute" via JDBC [Table "ATTRIBUTE" not found;]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:575)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:515)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:447)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:268)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at ar.uba.fi.ingsoft1.Application.main(Application.java:9)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ATTRIBUTE" not found; SQL statement:
+alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute [42102-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:204)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:74)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 36 common frames omitted
+2024-11-17 18:35:24 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17 18:35:25 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-17 18:35:26 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-17 18:35:26 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.alternative.AlternativeController.createAlternative(ar.uba.fi.ingsoft1.alternative.AlternativeDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/alternative"}, produces={}, value={"/alternative"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:35:26 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.attribute.AttributeController.createAttribute(ar.uba.fi.ingsoft1.attribute.AttributeDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/attribute"}, produces={}, value={"/attribute"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:35:26 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:35:26 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:35:26 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:35:26 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:35:27 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-11-17 18:35:27 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-11-17 18:35:27 [main] INFO  ar.uba.fi.ingsoft1.Application - Started Application in 7.542 seconds (process running for 8.389)
+2024-11-17 18:35:27 [main] INFO  a.u.f.i.d.RuleLoaderService - loading business rules...
+2024-11-17 18:35:27 [main] DEBUG a.u.f.i.d.RuleLoaderService - loaded rule "liquidCantBeWithGasRule.json"
+2024-11-17 18:35:27 [main] DEBUG a.u.f.i.d.RuleLoaderService - loaded rule "weightLimit10Rule.json"
+2024-11-17 18:35:27 [main] INFO  a.u.f.i.d.RuleLoaderService - succesfully loaded 2 rules.
+2024-11-17 18:35:51 [main] INFO  a.u.f.i.user.UserControllerTest - Starting UserControllerTest using Java 22.0.2 with PID 33135 (started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 18:35:51 [main] INFO  a.u.f.i.user.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 18:35:52 [main] WARN  o.s.w.c.s.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController' defined in file [/home/aguss/IdeaProjects/TpGrupo11/backend/target/classes/ar/uba/fi/ingsoft1/user/UserController.class]: Unsatisfied dependency expressed through constructor parameter 2: No qualifying bean of type 'ar.uba.fi.ingsoft1.authorization.AuthorizationService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-11-17 18:35:52 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-11-17 18:35:52 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 2 of constructor in ar.uba.fi.ingsoft1.user.UserController required a bean of type 'ar.uba.fi.ingsoft1.authorization.AuthorizationService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'ar.uba.fi.ingsoft1.authorization.AuthorizationService' in your configuration.
+
+2024-11-17 18:35:52 [main] WARN  o.s.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener] to prepare test instance [ar.uba.fi.ingsoft1.user.UserControllerTest@4eeab3e]
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@231cdda8 testClass = ar.uba.fi.ingsoft1.user.UserControllerTest, locations = [], classes = [ar.uba.fi.ingsoft1.Application], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = ["org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true"], contextCustomizers = [[ImportsContextCustomizer@6b70d1fb key = [org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@792b749c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@73eb439a, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@74dc9a58, org.springframework.boot.test.web.reactor.netty.DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory$DisableReactorResourceFactoryGlobalResourcesContextCustomizerCustomizer@5b38c1ec, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@48e1f6c7, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@20ae38c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1f44e3f4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@23941fb4, org.springframework.boot.test.context.SpringBootTestAnnotation@21766617], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:122)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:106)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:63)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:194)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:782)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController' defined in file [/home/aguss/IdeaProjects/TpGrupo11/backend/target/classes/ar/uba/fi/ingsoft1/user/UserController.class]: Unsatisfied dependency expressed through constructor parameter 2: No qualifying bean of type 'ar.uba.fi.ingsoft1.authorization.AuthorizationService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1463)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:553)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	... 73 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'ar.uba.fi.ingsoft1.authorization.AuthorizationService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1880)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1406)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 97 common frames omitted
+2024-11-17 18:35:52 [main] WARN  o.s.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener] to prepare test instance [ar.uba.fi.ingsoft1.user.UserControllerTest@28b523a]
+java.lang.IllegalStateException: ApplicationContext failure threshold (1) exceeded: skipping repeated attempt to load context for [WebMergedContextConfiguration@231cdda8 testClass = ar.uba.fi.ingsoft1.user.UserControllerTest, locations = [], classes = [ar.uba.fi.ingsoft1.Application], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = ["org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true"], contextCustomizers = [[ImportsContextCustomizer@6b70d1fb key = [org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@792b749c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@73eb439a, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@74dc9a58, org.springframework.boot.test.web.reactor.netty.DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory$DisableReactorResourceFactoryGlobalResourcesContextCustomizerCustomizer@5b38c1ec, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@48e1f6c7, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@20ae38c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1f44e3f4, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@23941fb4, org.springframework.boot.test.context.SpringBootTestAnnotation@21766617], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:145)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:122)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:106)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:63)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:212)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:194)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1709)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:556)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:546)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:782)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+2024-11-17 18:38:32 [main] INFO  a.u.f.i.user.UserControllerTest - Starting UserControllerTest using Java 22.0.2 with PID 34626 (started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 18:38:32 [main] INFO  a.u.f.i.user.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 18:38:34 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:38:34 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:38:34 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:38:34 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:38:35 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-17 18:38:35 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2024-11-17 18:38:35 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2024-11-17 18:38:35 [main] INFO  a.u.f.i.user.UserControllerTest - Started UserControllerTest in 3.527 seconds (process running for 4.845)
+2024-11-17 18:39:03 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17 18:39:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-11-17 18:39:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-11-17 18:39:09 [main] INFO  ar.uba.fi.ingsoft1.Application - Starting Application using Java 22.0.2 with PID 35114 (/home/aguss/IdeaProjects/TpGrupo11/backend/target/classes started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 18:39:09 [main] INFO  ar.uba.fi.ingsoft1.Application - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 18:39:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-17 18:39:11 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 66 ms. Found 6 JPA repository interfaces.
+2024-11-17 18:39:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-11-17 18:39:12 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-11-17 18:39:12 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-17 18:39:12 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-11-17 18:39:12 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-17 18:39:12 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2232 ms
+2024-11-17 18:39:12 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-17 18:39:12 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-17 18:39:12 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-17 18:39:12 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-17 18:39:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-11-17 18:39:13 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:5f13e6d5-59a7-42cc-9b63-3cf3b6bf4175 user=SA
+2024-11-17 18:39:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-11-17 18:39:14 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-17 18:39:14 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier";]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier";]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:575)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:515)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:315)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at ar.uba.fi.ingsoft1.Application.main(Application.java:9)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id)) [42001-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261)
+	at org.h2.command.Parser.readIdentifier(Parser.java:5533)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8994)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 37 common frames omitted
+2024-11-17 18:39:14 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute" via JDBC [Table "ATTRIBUTE" not found;]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute" via JDBC [Table "ATTRIBUTE" not found;]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:575)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:515)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:447)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:268)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at ar.uba.fi.ingsoft1.Application.main(Application.java:9)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ATTRIBUTE" not found; SQL statement:
+alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute [42102-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:204)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:74)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 36 common frames omitted
+2024-11-17 18:39:14 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17 18:39:15 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-17 18:39:16 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-17 18:39:16 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.alternative.AlternativeController.createAlternative(ar.uba.fi.ingsoft1.alternative.AlternativeDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/alternative"}, produces={}, value={"/alternative"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:39:16 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.attribute.AttributeController.createAttribute(ar.uba.fi.ingsoft1.attribute.AttributeDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/attribute"}, produces={}, value={"/attribute"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:39:16 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:39:16 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:39:16 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:39:16 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 18:39:17 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-11-17 18:39:17 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-11-17 18:39:17 [main] INFO  ar.uba.fi.ingsoft1.Application - Started Application in 8.241 seconds (process running for 9.267)
+2024-11-17 18:39:17 [main] INFO  a.u.f.i.d.RuleLoaderService - loading business rules...
+2024-11-17 18:39:17 [main] DEBUG a.u.f.i.d.RuleLoaderService - loaded rule "liquidCantBeWithGasRule.json"
+2024-11-17 18:39:17 [main] DEBUG a.u.f.i.d.RuleLoaderService - loaded rule "weightLimit10Rule.json"
+2024-11-17 18:39:17 [main] INFO  a.u.f.i.d.RuleLoaderService - succesfully loaded 2 rules.
+2024-11-17 18:39:29 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17 18:39:29 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-11-17 18:39:29 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-11-17 19:28:26 [main] INFO  ar.uba.fi.ingsoft1.Application - Starting Application using Java 22.0.2 with PID 8246 (/home/aguss/IdeaProjects/TpGrupo11/backend/target/classes started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 19:28:26 [main] INFO  ar.uba.fi.ingsoft1.Application - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 19:28:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-17 19:28:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 79 ms. Found 6 JPA repository interfaces.
+2024-11-17 19:28:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-11-17 19:28:30 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-11-17 19:28:30 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-17 19:28:30 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-11-17 19:28:30 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-17 19:28:30 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3055 ms
+2024-11-17 19:28:30 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-17 19:28:30 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-17 19:28:30 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-17 19:28:31 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-17 19:28:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-11-17 19:28:32 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:b3b356e3-2cf4-4060-8354-79223577792c user=SA
+2024-11-17 19:28:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-11-17 19:28:34 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-17 19:28:34 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier";]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier";]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:575)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:515)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:315)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at ar.uba.fi.ingsoft1.Application.main(Application.java:9)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id)) [42001-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261)
+	at org.h2.command.Parser.readIdentifier(Parser.java:5533)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8994)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 37 common frames omitted
+2024-11-17 19:28:34 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute" via JDBC [Table "ATTRIBUTE" not found;]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute" via JDBC [Table "ATTRIBUTE" not found;]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:575)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:515)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:447)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:268)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at ar.uba.fi.ingsoft1.Application.main(Application.java:9)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ATTRIBUTE" not found; SQL statement:
+alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute [42102-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:204)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:74)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 36 common frames omitted
+2024-11-17 19:28:34 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17 19:28:36 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-17 19:28:38 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-17 19:28:38 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.alternative.AlternativeController.createAlternative(ar.uba.fi.ingsoft1.alternative.AlternativeDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/alternative"}, produces={}, value={"/alternative"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:28:38 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.attribute.AttributeController.createAttribute(ar.uba.fi.ingsoft1.attribute.AttributeDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/attribute"}, produces={}, value={"/attribute"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:28:38 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:28:38 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:28:38 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:28:38 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:28:40 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-11-17 19:28:41 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-11-17 19:28:41 [main] INFO  ar.uba.fi.ingsoft1.Application - Started Application in 15.179 seconds (process running for 17.052)
+2024-11-17 19:28:41 [main] INFO  a.u.f.i.d.RuleLoaderService - loading business rules...
+2024-11-17 19:28:41 [main] DEBUG a.u.f.i.d.RuleLoaderService - loaded rule "liquidCantBeWithGasRule.json"
+2024-11-17 19:28:41 [main] DEBUG a.u.f.i.d.RuleLoaderService - loaded rule "weightLimit10Rule.json"
+2024-11-17 19:28:41 [main] INFO  a.u.f.i.d.RuleLoaderService - succesfully loaded 2 rules.
+2024-11-17 19:29:08 [SpringApplicationShutdownHook] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-11-17 19:29:08 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17 19:29:08 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-11-17 19:29:08 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-11-17 19:29:14 [main] INFO  ar.uba.fi.ingsoft1.Application - Starting Application using Java 22.0.2 with PID 8955 (/home/aguss/IdeaProjects/TpGrupo11/backend/target/classes started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 19:29:14 [main] INFO  ar.uba.fi.ingsoft1.Application - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 19:29:15 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-17 19:29:15 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 6 JPA repository interfaces.
+2024-11-17 19:29:16 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-11-17 19:29:16 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-11-17 19:29:16 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-17 19:29:16 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-11-17 19:29:16 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-17 19:29:16 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2086 ms
+2024-11-17 19:29:16 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-17 19:29:16 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-17 19:29:16 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-17 19:29:17 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-17 19:29:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-11-17 19:29:17 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:80b52a2b-94c6-4b73-afb3-a8c73a0e7abc user=SA
+2024-11-17 19:29:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-11-17 19:29:19 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-17 19:29:19 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier";]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier";]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:575)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:515)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:315)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at ar.uba.fi.ingsoft1.Application.main(Application.java:9)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id)) [42001-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261)
+	at org.h2.command.Parser.readIdentifier(Parser.java:5533)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8994)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 37 common frames omitted
+2024-11-17 19:29:19 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute" via JDBC [Table "ATTRIBUTE" not found;]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute" via JDBC [Table "ATTRIBUTE" not found;]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:575)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:515)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:447)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:268)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at ar.uba.fi.ingsoft1.Application.main(Application.java:9)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ATTRIBUTE" not found; SQL statement:
+alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute [42102-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:204)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:74)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 36 common frames omitted
+2024-11-17 19:29:19 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17 19:29:19 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-17 19:29:20 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-17 19:29:20 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.alternative.AlternativeController.createAlternative(ar.uba.fi.ingsoft1.alternative.AlternativeDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/alternative"}, produces={}, value={"/alternative"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:29:21 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.attribute.AttributeController.createAttribute(ar.uba.fi.ingsoft1.attribute.AttributeDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/attribute"}, produces={}, value={"/attribute"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:29:21 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:29:21 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:29:21 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:29:21 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:29:21 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-11-17 19:29:21 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-11-17 19:29:21 [main] INFO  ar.uba.fi.ingsoft1.Application - Started Application in 8.137 seconds (process running for 9.142)
+2024-11-17 19:29:21 [main] INFO  a.u.f.i.d.RuleLoaderService - loading business rules...
+2024-11-17 19:29:21 [main] DEBUG a.u.f.i.d.RuleLoaderService - loaded rule "liquidCantBeWithGasRule.json"
+2024-11-17 19:29:21 [main] DEBUG a.u.f.i.d.RuleLoaderService - loaded rule "weightLimit10Rule.json"
+2024-11-17 19:29:21 [main] INFO  a.u.f.i.d.RuleLoaderService - succesfully loaded 2 rules.
+2024-11-17 19:29:31 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17 19:29:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-11-17 19:29:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-11-17 19:29:54 [main] INFO  ar.uba.fi.ingsoft1.Application - Starting Application using Java 22.0.2 with PID 9455 (/home/aguss/IdeaProjects/TpGrupo11/backend/target/classes started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 19:29:54 [main] INFO  ar.uba.fi.ingsoft1.Application - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 19:29:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-17 19:29:55 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 68 ms. Found 6 JPA repository interfaces.
+2024-11-17 19:29:56 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-11-17 19:29:56 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-11-17 19:29:56 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-17 19:29:56 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-11-17 19:29:56 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-17 19:29:56 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1660 ms
+2024-11-17 19:29:56 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-17 19:29:56 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-17 19:29:56 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-17 19:29:57 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-17 19:29:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-11-17 19:29:57 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:be487b35-82bb-430f-87db-888eff62ffc6 user=SA
+2024-11-17 19:29:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-11-17 19:29:59 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-17 19:29:59 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier";]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier";]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:575)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:515)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:315)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at ar.uba.fi.ingsoft1.Application.main(Application.java:9)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id)) [42001-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261)
+	at org.h2.command.Parser.readIdentifier(Parser.java:5533)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8994)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 37 common frames omitted
+2024-11-17 19:29:59 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute" via JDBC [Table "ATTRIBUTE" not found;]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute" via JDBC [Table "ATTRIBUTE" not found;]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:575)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:515)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:447)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:268)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at ar.uba.fi.ingsoft1.Application.main(Application.java:9)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ATTRIBUTE" not found; SQL statement:
+alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute [42102-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:204)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:74)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 36 common frames omitted
+2024-11-17 19:29:59 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17 19:29:59 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-17 19:30:00 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-17 19:30:00 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.alternative.AlternativeController.createAlternative(ar.uba.fi.ingsoft1.alternative.AlternativeDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/alternative"}, produces={}, value={"/alternative"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:30:00 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.attribute.AttributeController.createAttribute(ar.uba.fi.ingsoft1.attribute.AttributeDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/attribute"}, produces={}, value={"/attribute"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:30:00 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:30:00 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:30:00 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:30:00 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:30:01 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-11-17 19:30:01 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-11-17 19:30:01 [main] INFO  ar.uba.fi.ingsoft1.Application - Started Application in 7.382 seconds (process running for 8.364)
+2024-11-17 19:30:01 [main] INFO  a.u.f.i.d.RuleLoaderService - loading business rules...
+2024-11-17 19:30:01 [main] DEBUG a.u.f.i.d.RuleLoaderService - loaded rule "liquidCantBeWithGasRule.json"
+2024-11-17 19:30:01 [main] DEBUG a.u.f.i.d.RuleLoaderService - loaded rule "weightLimit10Rule.json"
+2024-11-17 19:30:01 [main] INFO  a.u.f.i.d.RuleLoaderService - succesfully loaded 2 rules.
+2024-11-17 19:35:00 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17 19:35:00 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-11-17 19:35:00 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-11-17 19:35:14 [main] INFO  ar.uba.fi.ingsoft1.Application - Starting Application using Java 22.0.2 with PID 12724 (/home/aguss/IdeaProjects/TpGrupo11/backend/target/classes started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 19:35:14 [main] INFO  ar.uba.fi.ingsoft1.Application - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 19:35:15 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-17 19:35:15 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 132 ms. Found 6 JPA repository interfaces.
+2024-11-17 19:35:17 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-11-17 19:35:17 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-11-17 19:35:17 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-17 19:35:17 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-11-17 19:35:17 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-17 19:35:17 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2886 ms
+2024-11-17 19:35:17 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-17 19:35:17 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-11-17 19:35:17 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-11-17 19:35:17 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-17 19:35:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-11-17 19:35:18 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:fda5a6ae-868f-4803-a433-5338fa3b412f user=SA
+2024-11-17 19:35:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-11-17 19:35:19 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-17 19:35:20 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier";]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id))" via JDBC [Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier";]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:575)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:515)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:315)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at ar.uba.fi.ingsoft1.Application.main(Application.java:9)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table attribute (id bigint not null, attribute_name varchar(255), [*]value varchar(255), primary key (id))"; expected "identifier"; SQL statement:
+create table attribute (id bigint not null, attribute_name varchar(255), value varchar(255), primary key (id)) [42001-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261)
+	at org.h2.command.Parser.readIdentifier(Parser.java:5533)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8994)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8939)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 37 common frames omitted
+2024-11-17 19:35:20 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute" via JDBC [Table "ATTRIBUTE" not found;]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute" via JDBC [Table "ATTRIBUTE" not found;]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:575)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:515)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:447)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:268)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at ar.uba.fi.ingsoft1.Application.main(Application.java:9)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ATTRIBUTE" not found; SQL statement:
+alter table if exists product_attribute add constraint FKefc9famxhv98xs6686269a79 foreign key (attribute_id) references attribute [42102-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:204)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:74)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 36 common frames omitted
+2024-11-17 19:35:20 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17 19:35:20 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-17 19:35:21 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-17 19:35:21 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.alternative.AlternativeController.createAlternative(ar.uba.fi.ingsoft1.alternative.AlternativeDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/alternative"}, produces={}, value={"/alternative"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:35:21 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.attribute.AttributeController.createAttribute(ar.uba.fi.ingsoft1.attribute.AttributeDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/attribute"}, produces={}, value={"/attribute"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:35:21 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:35:21 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:35:21 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:35:21 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:35:22 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-11-17 19:35:22 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-11-17 19:35:22 [main] INFO  ar.uba.fi.ingsoft1.Application - Started Application in 9.159 seconds (process running for 10.504)
+2024-11-17 19:35:22 [main] INFO  a.u.f.i.d.RuleLoaderService - loading business rules...
+2024-11-17 19:35:22 [main] DEBUG a.u.f.i.d.RuleLoaderService - loaded rule "liquidCantBeWithGasRule.json"
+2024-11-17 19:35:22 [main] DEBUG a.u.f.i.d.RuleLoaderService - loaded rule "weightLimit10Rule.json"
+2024-11-17 19:35:22 [main] INFO  a.u.f.i.d.RuleLoaderService - succesfully loaded 2 rules.
+2024-11-17 19:35:57 [main] INFO  a.u.f.i.user.UserControllerTest - Starting UserControllerTest using Java 22.0.2 with PID 12988 (started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 19:35:57 [main] INFO  a.u.f.i.user.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 19:35:59 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:35:59 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:35:59 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:35:59 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:35:59 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-17 19:35:59 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2024-11-17 19:35:59 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2024-11-17 19:35:59 [main] INFO  a.u.f.i.user.UserControllerTest - Started UserControllerTest in 2.352 seconds (process running for 3.942)
+2024-11-17 19:36:09 [main] INFO  a.u.f.i.user.UserControllerTest - Starting UserControllerTest using Java 22.0.2 with PID 13106 (started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 19:36:09 [main] INFO  a.u.f.i.user.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 19:36:11 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:36:11 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:36:11 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:36:11 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 19:36:11 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-17 19:36:11 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2024-11-17 19:36:11 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2024-11-17 19:36:11 [main] INFO  a.u.f.i.user.UserControllerTest - Started UserControllerTest in 2.541 seconds (process running for 4.035)
+2024-11-17 19:43:07 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-17 19:43:07 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-11-17 19:43:07 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-11-17 20:03:02 [main] INFO  a.u.f.i.user.UserControllerTest - Starting UserControllerTest using Java 22.0.2 with PID 25760 (started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 20:03:02 [main] INFO  a.u.f.i.user.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 20:03:04 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:03:04 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:03:04 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:03:04 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:03:05 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-17 20:03:05 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2024-11-17 20:03:05 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2024-11-17 20:03:05 [main] INFO  a.u.f.i.user.UserControllerTest - Started UserControllerTest in 2.775 seconds (process running for 4.702)
+2024-11-17 20:04:55 [main] INFO  a.u.f.i.user.UserControllerTest - Starting UserControllerTest using Java 22.0.2 with PID 27472 (started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 20:04:55 [main] INFO  a.u.f.i.user.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 20:04:57 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:04:57 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:04:57 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:04:57 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:04:58 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-17 20:04:58 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2024-11-17 20:04:58 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2024-11-17 20:04:58 [main] INFO  a.u.f.i.user.UserControllerTest - Started UserControllerTest in 2.652 seconds (process running for 4.209)
+2024-11-17 20:11:23 [main] INFO  a.u.f.i.user.UserControllerTest - Starting UserControllerTest using Java 22.0.2 with PID 32955 (started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 20:11:23 [main] INFO  a.u.f.i.user.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 20:11:25 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:11:25 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:11:25 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:11:25 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:11:25 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-17 20:11:25 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2024-11-17 20:11:25 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
+2024-11-17 20:11:25 [main] INFO  a.u.f.i.user.UserControllerTest - Started UserControllerTest in 3.142 seconds (process running for 5.378)
+2024-11-17 20:20:59 [main] INFO  a.u.f.i.user.UserControllerTest - Starting UserControllerTest using Java 22.0.2 with PID 39908 (started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 20:20:59 [main] INFO  a.u.f.i.user.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 20:21:01 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:21:01 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:21:01 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:21:01 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:21:01 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-17 20:21:01 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2024-11-17 20:21:01 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2024-11-17 20:21:01 [main] INFO  a.u.f.i.user.UserControllerTest - Started UserControllerTest in 2.474 seconds (process running for 3.864)
+2024-11-17 20:23:07 [main] INFO  a.u.f.i.user.UserControllerTest - Starting UserControllerTest using Java 22.0.2 with PID 41541 (started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 20:23:07 [main] INFO  a.u.f.i.user.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 20:23:08 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:23:08 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:23:08 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:23:08 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:23:09 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-17 20:23:09 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2024-11-17 20:23:09 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2024-11-17 20:23:09 [main] INFO  a.u.f.i.user.UserControllerTest - Started UserControllerTest in 3.392 seconds (process running for 4.679)
+2024-11-17 20:23:19 [main] INFO  a.u.f.i.user.UserControllerTest - Starting UserControllerTest using Java 22.0.2 with PID 41731 (started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 20:23:19 [main] INFO  a.u.f.i.user.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 20:23:25 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:23:25 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:23:25 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:23:25 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:23:28 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-17 20:23:28 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2024-11-17 20:23:28 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 3 ms
+2024-11-17 20:23:28 [main] INFO  a.u.f.i.user.UserControllerTest - Started UserControllerTest in 10.35 seconds (process running for 13.223)
+2024-11-17 20:52:28 [main] INFO  a.u.f.i.user.UserControllerTest - Starting UserControllerTest using Java 22.0.2 with PID 46208 (started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 20:52:28 [main] INFO  a.u.f.i.user.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 20:52:30 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:52:30 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:52:30 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:52:30 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:52:31 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-17 20:52:31 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2024-11-17 20:52:31 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2024-11-17 20:52:31 [main] INFO  a.u.f.i.user.UserControllerTest - Started UserControllerTest in 5.214 seconds (process running for 7.532)
+2024-11-17 20:52:58 [main] INFO  a.u.f.i.user.UserControllerTest - Starting UserControllerTest using Java 22.0.2 with PID 46333 (started by aguss in /home/aguss/IdeaProjects/TpGrupo11/backend)
+2024-11-17 20:52:58 [main] INFO  a.u.f.i.user.UserControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-11-17 20:53:01 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.loginUser(java.lang.String), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:53:01 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerUser(ar.uba.fi.ingsoft1.user.UserDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/register"}, produces={}, value={"/register"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:53:01 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.registerAdmin(ar.uba.fi.ingsoft1.user.AdminDTO), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/admins"}, produces={}, value={"/admins"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:53:01 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity ar.uba.fi.ingsoft1.user.UserController.privileges(), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/privileges"}, produces={}, value={"/privileges"}), @org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
+2024-11-17 20:53:02 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-11-17 20:53:02 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2024-11-17 20:53:02 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
+2024-11-17 20:53:02 [main] INFO  a.u.f.i.user.UserControllerTest - Started UserControllerTest in 4.838 seconds (process running for 6.922)

@@ -1,0 +1,149 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AuthorizationService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ar.uba.fi.ingsoft1.authorization</a>
+</div>
+
+<h1>Coverage Summary for Class: AuthorizationService (ar.uba.fi.ingsoft1.authorization)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AuthorizationService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ar.uba.fi.ingsoft1.authorization;
+&nbsp;
+&nbsp;import io.jsonwebtoken.Claims;
+&nbsp;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;@Service
+&nbsp;public class AuthorizationService {
+&nbsp;
+&nbsp;    private final JwtHandler jwtHandler;
+<b class="fc">&nbsp;    private final List&lt;String&gt; privilegesRank = Arrays.asList(&quot;user&quot;, &quot;admin&quot;);</b>
+&nbsp;    @Autowired
+<b class="fc">&nbsp;    public AuthorizationService(JwtHandler jwtHandler) {</b>
+<b class="fc">&nbsp;        this.jwtHandler = jwtHandler;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Validate and extract Claims from the token
+&nbsp;    public Claims validateTokenAndExtractClaims(String authHeader) {
+<b class="fc">&nbsp;        if (authHeader == null || authHeader.isBlank()) {</b>
+<b class="fc">&nbsp;            throw new IllegalArgumentException(&quot;Missing authorization header&quot;);</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        String token = authHeader.startsWith(&quot;Bearer &quot;) ? authHeader.substring(7) : authHeader;</b>
+<b class="fc">&nbsp;        return jwtHandler.decodeToken(token);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Check if the user has the required privilege
+&nbsp;    public boolean hasPrivilege(Claims claims, String requiredPrivilege) {
+<b class="fc">&nbsp;        String privilege = claims.get(&quot;privilege&quot;, String.class);</b>
+&nbsp;
+<b class="fc">&nbsp;        int userPrivilegeLevel = privilegesRank.indexOf(privilege);</b>
+<b class="fc">&nbsp;        int requiredPrivilegeLevel = privilegesRank.indexOf(requiredPrivilege);</b>
+&nbsp;
+&nbsp;        // User has access if their privilege level is greater than or equal to the required level
+<b class="fc">&nbsp;        return userPrivilegeLevel &gt;= requiredPrivilegeLevel;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getUserId(Claims claims) {
+<b class="fc">&nbsp;        return claims.get(&quot;userID&quot;, String.class);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-25 23:48</div>
+</div>
+</body>
+</html>

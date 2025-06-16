@@ -1,0 +1,150 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > CartEvaluator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ar.uba.fi.ingsoft1.dynamicRules.objectClass</a>
+</div>
+
+<h1>Coverage Summary for Class: CartEvaluator (ar.uba.fi.ingsoft1.dynamicRules.objectClass)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CartEvaluator</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94.7%
+  </span>
+  <span class="absValue">
+    (18/19)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ar.uba.fi.ingsoft1.dynamicRules.objectClass;
+&nbsp;
+&nbsp;import ar.uba.fi.ingsoft1.attribute.Attribute;
+&nbsp;import ar.uba.fi.ingsoft1.cart.Cart;
+&nbsp;import ar.uba.fi.ingsoft1.dynamicRules.operators.ArithmeticOperator;
+&nbsp;import ar.uba.fi.ingsoft1.dynamicRules.operators.ArithmeticOperatorFactory;
+&nbsp;import ar.uba.fi.ingsoft1.dynamicRules.operators.MultiplicationOperator;
+&nbsp;import ar.uba.fi.ingsoft1.order.Item;
+&nbsp;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.Map;
+&nbsp;
+&nbsp;public class CartEvaluator implements ObjectClassEvaluator {
+&nbsp;    private final ArithmeticOperator arithmeticOperator;
+&nbsp;
+<b class="fc">&nbsp;    public CartEvaluator(ArithmeticOperator arithmeticOperator) {</b>
+<b class="fc">&nbsp;        this.arithmeticOperator = arithmeticOperator;</b>
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public Object getValue(Cart cart, String key) {
+<b class="fc">&nbsp;        switch (key.toLowerCase()) {</b>
+&nbsp;            case &quot;quantity&quot; -&gt; {
+<b class="fc">&nbsp;                double totalValue = arithmeticOperator instanceof MultiplicationOperator ? 1 : 0;</b>
+&nbsp;                // Devuelve el total de productos en el carrito
+<b class="fc">&nbsp;                for (Item item : cart) {</b>
+<b class="fc">&nbsp;                    var product = item.product();</b>
+<b class="fc">&nbsp;                    var amount = item.amount();</b>
+<b class="fc">&nbsp;                    totalValue = arithmeticOperator.operate(totalValue, amount);</b>
+<b class="fc">&nbsp;                }</b>
+<b class="fc">&nbsp;                    return totalValue;</b>
+&nbsp;            }
+&nbsp;            case &quot;maxproductquantity&quot; -&gt; {
+&nbsp;                // Devuelve el máximo número de un mismo producto en el carrito
+<b class="fc">&nbsp;                Map&lt;Long, Integer&gt; productCounts = new HashMap&lt;&gt;();</b>
+<b class="fc">&nbsp;                for (Item item : cart) {</b>
+<b class="fc">&nbsp;                    var product = item.product();</b>
+<b class="fc">&nbsp;                    var amount = item.amount();</b>
+<b class="fc">&nbsp;                    Long productId = product.getId();</b>
+<b class="fc">&nbsp;                    productCounts.put(productId, productCounts.getOrDefault(productId, 0) + amount);</b>
+<b class="fc">&nbsp;                }</b>
+<b class="fc">&nbsp;                return productCounts.values().stream().max(Integer::compareTo).orElse(0);</b>
+&nbsp;            }
+<b class="nc">&nbsp;            default -&gt; throw new IllegalArgumentException(&quot;Invalid key for cart evaluation: &quot; + key);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-25 23:48</div>
+</div>
+</body>
+</html>

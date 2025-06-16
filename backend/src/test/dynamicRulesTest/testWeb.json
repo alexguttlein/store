@@ -1,0 +1,65 @@
+[
+  {
+    "predicates": [
+      {
+        "key": "estado",
+        "value": "liquido",
+        "arithmeticOperator": "",
+        "compareOperator": "contains",
+        "objectClass": "stringAttribute"
+      },
+      {
+        "key": "estado",
+        "value": "gaseoso",
+        "arithmeticOperator": "",
+        "compareOperator": "contains",
+        "objectClass": "stringAttribute"
+      }
+    ],
+    "predicatesRelation": "NOT AND",
+    "scope": "order",
+    "messageError": "Un mismo pedido no puede combinar productos líquidos y gaseosos"
+  },
+  {
+    "predicates": [
+      {
+        "key": "peso",
+        "value": 10,
+        "arithmeticOperator": "+",
+        "compareOperator": "<",
+        "objectClass": "numericAttribute"
+      }
+    ],
+    "predicatesRelation": "AND",
+    "scope": "product",
+    "messageError": "El pedido debe tener un peso menor a 10kg"
+  },
+  {
+    "predicates": [
+      {
+        "key": "quantity",
+        "value": 3,
+        "arithmeticOperator": "+",
+        "compareOperator": "<=",
+        "objectClass": "cart"
+      }
+    ],
+    "predicatesRelation": "AND",
+    "scope": "product",
+    "messageError": "No se pueden incluir más de 3 productos en un mismo pedido"
+  },
+  {
+    "predicates": [
+      {
+        "key": "maxProductQuantity",
+        "value": 2,
+        "arithmeticOperator": "+",
+        "compareOperator": "<=",
+        "objectClass": "cart"
+      }
+    ],
+    "predicatesRelation": "AND",
+    "scope": "product",
+    "messageError": "No se pueden incluir más de 2 productos iguales en un pedido"
+  }
+]

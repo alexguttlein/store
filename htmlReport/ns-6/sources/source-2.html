@@ -1,0 +1,150 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > PredicateRule</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ar.uba.fi.ingsoft1.dynamicRules</a>
+</div>
+
+<h1>Coverage Summary for Class: PredicateRule (ar.uba.fi.ingsoft1.dynamicRules)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PredicateRule</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (2/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.9%
+  </span>
+  <span class="absValue">
+    (8/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ar.uba.fi.ingsoft1.dynamicRules;
+&nbsp;
+&nbsp;import static java.util.Objects.isNull;
+&nbsp;
+&nbsp;import ar.uba.fi.ingsoft1.cart.Cart;
+&nbsp;import ar.uba.fi.ingsoft1.dynamicRules.comparators.ComparisonOperator;
+&nbsp;import ar.uba.fi.ingsoft1.dynamicRules.comparators.ComparisonOperatorFactory;
+&nbsp;import ar.uba.fi.ingsoft1.dynamicRules.objectClass.ObjectClassEvaluator;
+&nbsp;import ar.uba.fi.ingsoft1.dynamicRules.objectClass.ObjectClassEvaluatorFactory;
+&nbsp;import ar.uba.fi.ingsoft1.dynamicRules.operators.ArithmeticOperator;
+&nbsp;import ar.uba.fi.ingsoft1.dynamicRules.operators.ArithmeticOperatorFactory;
+&nbsp;
+&nbsp;public class PredicateRule implements Rule {
+&nbsp;
+&nbsp;    private String key;
+&nbsp;    private Object value;
+&nbsp;    private ArithmeticOperator arithmeticOperator;
+&nbsp;    private ComparisonOperator comparisonOperator;
+&nbsp;    private ObjectClassEvaluator evaluator;
+&nbsp;
+<b class="fc">&nbsp;    public PredicateRule(String key, Object value, String arithmeticOperator, String comparisonOperator, String objectClass) {</b>
+<b class="fc">&nbsp;        this.key = key;</b>
+<b class="fc">&nbsp;        this.value = value;</b>
+<b class="fc">&nbsp;        this.arithmeticOperator = ArithmeticOperatorFactory.create(arithmeticOperator);</b>
+<b class="fc">&nbsp;        this.comparisonOperator = ComparisonOperatorFactory.create(comparisonOperator);</b>
+<b class="fc">&nbsp;        this.evaluator = ObjectClassEvaluatorFactory.create(objectClass, this.arithmeticOperator);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Metodo que obtiene el valor del Cart que va a comparar
+&nbsp;     * Y luego se lo envia al metodo que compara
+&nbsp;     * @param cart carrito
+&nbsp;     * @return boolean
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean interpret(Cart cart) {
+<b class="fc">&nbsp;        Object orderValue = evaluator.getValue(cart, key);</b>
+<b class="fc">&nbsp;        return !isNull(orderValue) &amp;&amp; comparisonOperator.compare(orderValue, value);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String getMessageError() {
+<b class="nc">&nbsp;        return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-25 23:48</div>
+</div>
+</body>
+</html>

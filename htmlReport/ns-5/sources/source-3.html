@@ -1,0 +1,136 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > CartDTO</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ar.uba.fi.ingsoft1.cart</a>
+</div>
+
+<h1>Coverage Summary for Class: CartDTO (ar.uba.fi.ingsoft1.cart)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CartDTO</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (2/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (5/10)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ar.uba.fi.ingsoft1.cart;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import ar.uba.fi.ingsoft1.order.ItemDTO;
+&nbsp;
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;public record CartDTO(</b>
+&nbsp;        Long id,
+&nbsp;        List&lt;ItemDTO&gt; products
+&nbsp;        //User user
+&nbsp;
+&nbsp;) {
+&nbsp;    public CartDTO(Cart cart){
+<b class="fc">&nbsp;        this(cart.getId(),</b>
+<b class="fc">&nbsp;        cart.getProducts().entrySet().stream()</b>
+<b class="fc">&nbsp;            .map(entry -&gt; new ItemDTO(entry.getKey(), entry.getValue()))</b>
+<b class="fc">&nbsp;            .toList());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static CartDTO create(Cart cart) {
+<b class="nc">&nbsp;        var items = new ArrayList&lt;ItemDTO&gt;();</b>
+<b class="nc">&nbsp;        var products = cart.getProducts();</b>
+<b class="nc">&nbsp;        products.forEach((prod, amount) -&gt; {</b>
+<b class="nc">&nbsp;            items.add(new ItemDTO(prod, amount));</b>
+&nbsp;        });
+&nbsp;
+<b class="nc">&nbsp;        return new CartDTO(cart.getId(), items);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-25 23:48</div>
+</div>
+</body>
+</html>

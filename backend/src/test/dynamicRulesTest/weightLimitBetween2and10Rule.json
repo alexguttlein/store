@@ -1,0 +1,23 @@
+[
+  {
+    "predicates": [
+      {
+        "key": "peso",
+        "value": 2,
+        "arithmeticOperator": "+",
+        "compareOperator": ">",
+        "objectClass": "numericAttribute"
+      },
+      {
+        "key": "peso",
+        "value": 10,
+        "arithmeticOperator": "+",
+        "compareOperator": "<",
+        "objectClass": "numericAttribute"
+      }
+    ],
+    "predicatesRelation": "AND",
+    "scope": "product",
+    "messageError": "El pedido debe tener un peso entre 2kg y 10kg"
+  }
+]

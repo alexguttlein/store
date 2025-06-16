@@ -1,0 +1,227 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AlternativeService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ar.uba.fi.ingsoft1.alternative</a>
+</div>
+
+<h1>Coverage Summary for Class: AlternativeService (ar.uba.fi.ingsoft1.alternative)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AlternativeService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    62.5%
+  </span>
+  <span class="absValue">
+    (5/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    36.8%
+  </span>
+  <span class="absValue">
+    (14/38)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ar.uba.fi.ingsoft1.alternative;
+&nbsp;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.data.domain.Page;
+&nbsp;import org.springframework.data.domain.PageRequest;
+&nbsp;import org.springframework.data.domain.Pageable;
+&nbsp;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;import org.springframework.transaction.annotation.Transactional;
+&nbsp;
+&nbsp;import ar.uba.fi.ingsoft1.product.ProductService;
+&nbsp;import ar.uba.fi.ingsoft1.product.Product;
+&nbsp;import ar.uba.fi.ingsoft1.product.ProductCreateDTO;
+&nbsp;
+&nbsp;
+&nbsp;import ar.uba.fi.ingsoft1.attribute.AttributeService;
+&nbsp;import ar.uba.fi.ingsoft1.attribute.Attribute;
+&nbsp;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.HashSet;
+&nbsp;
+&nbsp;
+&nbsp;import java.util.Map;
+&nbsp;
+&nbsp;
+&nbsp;@Service
+&nbsp;@Transactional
+&nbsp;@RequiredArgsConstructor
+&nbsp;public class AlternativeService {
+&nbsp;    @Autowired
+&nbsp;    private AlternativeRepository alternativeRepository;
+&nbsp;    @Autowired
+&nbsp;    private ProductService productService;
+&nbsp;    @Autowired
+&nbsp;    private AttributeService attributeService;
+&nbsp;
+&nbsp;    public AlternativeDTO createAlternative(AlternativeDTO data){
+<b class="fc">&nbsp;        Alternative alternative = data.asAlternative();</b>
+<b class="fc">&nbsp;        return new AlternativeDTO(alternativeRepository.save(alternative));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void createAlternativeWithVariants(String alternativeName, List&lt;Map&lt;String, String&gt;&gt; variants) {
+<b class="nc">&nbsp;        Alternative alternative = new Alternative();</b>
+<b class="nc">&nbsp;        alternative.setAlternativeName(alternativeName);</b>
+<b class="nc">&nbsp;        alternative = alternativeRepository.save(alternative);</b>
+<b class="nc">&nbsp;        Long alternativeId = alternative.getId();</b>
+&nbsp;
+&nbsp;        
+<b class="nc">&nbsp;        if (variants.isEmpty()) {</b>
+<b class="nc">&nbsp;            Set&lt;Long&gt; attributes = new HashSet&lt;&gt;();</b>
+<b class="nc">&nbsp;            productService.createProduct(new ProductCreateDTO(alternativeName, 1, attributes, alternativeId));</b>
+&nbsp;            return;
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        for (Map&lt;String, String&gt; variantMap : variants) {</b>
+<b class="nc">&nbsp;            Set&lt;Long&gt; attributes = new HashSet&lt;&gt;();</b>
+&nbsp;
+<b class="nc">&nbsp;            for (Map.Entry&lt;String, String&gt; entry : variantMap.entrySet()) {</b>
+<b class="nc">&nbsp;                String attributeName = entry.getKey();  // &quot;Color&quot;, &quot;Tamaño&quot;</b>
+<b class="nc">&nbsp;                String attributeValue = entry.getValue();  // &quot;Rojo&quot;, &quot;Grande&quot;</b>
+&nbsp;                
+&nbsp;                // First, try to find the attribute by both name and value
+<b class="nc">&nbsp;                Long attributeId = attributeService.findIdsByAttributeNameAndAttributeValue(attributeName, attributeValue)</b>
+<b class="nc">&nbsp;                        .stream()</b>
+<b class="nc">&nbsp;                        .findFirst() // We expect a single result or none</b>
+<b class="nc">&nbsp;                        .orElseGet(() -&gt; {</b>
+&nbsp;                            // If no attribute is found, create a new one
+<b class="nc">&nbsp;                            return attributeService.createAttributeFromNameAndValue(attributeName, attributeValue).id();</b>
+&nbsp;                        });
+&nbsp;
+<b class="nc">&nbsp;                attributes.add(attributeId); // Add the attribute to the list</b>
+<b class="nc">&nbsp;            }</b>
+&nbsp;        
+<b class="nc">&nbsp;            productService.createProduct(new ProductCreateDTO(alternativeName, 1, attributes, alternativeId));</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Método para obtener todas las Alternatives con paginacion
+&nbsp;    public Page&lt;AlternativeDTO&gt; getAlternatives(int pageNo, int pageSize) {
+<b class="nc">&nbsp;        Pageable pageable = PageRequest.of(pageNo, pageSize);</b>
+&nbsp;
+<b class="nc">&nbsp;        return alternativeRepository.findAll(pageable).map(AlternativeDTO::new);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Método para obtener todas las Alternatives
+&nbsp;    public List&lt;AlternativeDTO&gt; getAllAlternatives() {
+&nbsp;
+<b class="fc">&nbsp;        return alternativeRepository.findAll().stream().map(AlternativeDTO::new).toList();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Método para obtener una Alternative por ID
+&nbsp;    public AlternativeDTO getAlternativeById(Long id) {
+<b class="fc">&nbsp;        Alternative alternative = alternativeRepository.findById(id)</b>
+<b class="fc">&nbsp;                .orElseThrow(() -&gt; new RuntimeException(&quot;Alternative not found&quot;));</b>
+<b class="fc">&nbsp;        return new AlternativeDTO(alternative);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //eliminar alternativa por id
+&nbsp;    public void deleteAlternative(Long id) {
+<b class="fc">&nbsp;        if (!alternativeRepository.existsById(id)) {</b>
+<b class="nc">&nbsp;            throw new RuntimeException(&quot;Alternative not found with id: &quot; + id);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        alternativeRepository.deleteById(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;AlternativeDTO&gt; findAlternativesByName(String alternativeName) {
+<b class="fc">&nbsp;        List&lt;Alternative&gt; alternatives = alternativeRepository.findByAlternativeName(alternativeName);</b>
+<b class="fc">&nbsp;        List&lt;AlternativeDTO&gt; alternativeDTOs = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="fc">&nbsp;        for (Alternative alternative : alternatives) {</b>
+<b class="fc">&nbsp;            alternativeDTOs.add(new AlternativeDTO(alternative));</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;
+<b class="fc">&nbsp;        return alternativeDTOs;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-25 23:48</div>
+</div>
+</body>
+</html>

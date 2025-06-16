@@ -1,0 +1,196 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ProductController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ar.uba.fi.ingsoft1.product</a>
+</div>
+
+<h1>Coverage Summary for Class: ProductController (ar.uba.fi.ingsoft1.product)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ProductController</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ar.uba.fi.ingsoft1.product;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.data.domain.Page;
+&nbsp;import org.springframework.data.domain.PageImpl;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.CrossOrigin;
+&nbsp;import org.springframework.web.bind.annotation.DeleteMapping;
+&nbsp;import org.springframework.web.bind.annotation.GetMapping;
+&nbsp;import org.springframework.web.bind.annotation.PatchMapping;
+&nbsp;import org.springframework.web.bind.annotation.PathVariable;
+&nbsp;import org.springframework.web.bind.annotation.PostMapping;
+&nbsp;import org.springframework.web.bind.annotation.RequestBody;
+&nbsp;import org.springframework.web.bind.annotation.RequestMapping;
+&nbsp;import org.springframework.web.bind.annotation.RequestParam;
+&nbsp;import org.springframework.web.bind.annotation.RestController;
+&nbsp;
+&nbsp;import ar.uba.fi.ingsoft1.authorization.RequiresPrivilege;
+&nbsp;import ar.uba.fi.ingsoft1.authorization.RequiresPrivilege;
+&nbsp;import ar.uba.fi.ingsoft1.attribute.AttributeService;
+&nbsp;
+&nbsp;import lombok.RequiredArgsConstructor;
+&nbsp;
+&nbsp;@RestController
+&nbsp;@CrossOrigin(origins = &quot;http://localhost:3000&quot;)
+&nbsp;@RequestMapping(&quot;/products&quot;)  // Ruta base para Product
+&nbsp;@RequiredArgsConstructor
+&nbsp;public class ProductController {
+&nbsp;    @Autowired
+&nbsp;    private ProductService productService;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private AttributeService attributeService;
+&nbsp;
+&nbsp;    // POST para crear un nuevo Product
+&nbsp;    @PostMapping
+&nbsp;    @RequiresPrivilege(&quot;admin&quot;)
+&nbsp;    public ResponseEntity&lt;ProductDTO&gt; createProduct(@RequestBody ProductCreateDTO productCreateDTO) {
+<b class="nc">&nbsp;        ProductDTO newProduct = productService.createProduct(productCreateDTO);</b>
+<b class="nc">&nbsp;        return ResponseEntity.ok(newProduct);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // GET para obtener todos los Product
+&nbsp;    @GetMapping
+&nbsp;    @RequiresPrivilege(&quot;user&quot;)
+&nbsp;    public ResponseEntity&lt;Page&lt;ProductDTO&gt;&gt; getProducts(@RequestParam(defaultValue = &quot;0&quot;) int pageNo,
+&nbsp;    @RequestParam(defaultValue = &quot;9&quot;) int pageSize) {
+<b class="nc">&nbsp;        if (pageSize &lt; 0) {</b>
+<b class="nc">&nbsp;            List&lt;ProductDTO&gt; allProducts =  productService.getAllProducts();</b>
+<b class="nc">&nbsp;            return ResponseEntity.ok(new PageImpl&lt;&gt;(allProducts));</b>
+&nbsp;
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return ResponseEntity.ok(productService.getProducts(pageNo, pageSize));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // GET para obtener un Product por ID
+&nbsp;    @GetMapping(&quot;/{id}&quot;)
+&nbsp;    @RequiresPrivilege(&quot;user&quot;)
+&nbsp;    public ResponseEntity&lt;ProductDTO&gt; getProductById(@PathVariable Long id) {
+<b class="nc">&nbsp;        ProductDTO product = productService.getProductById(id);</b>
+<b class="nc">&nbsp;        return ResponseEntity.ok(product);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // DELETE para eliminar un Product por id
+&nbsp;    @DeleteMapping(&quot;/{id}&quot;)
+&nbsp;    @RequiresPrivilege(&quot;admin&quot;)
+&nbsp;    public ResponseEntity&lt;Void&gt; deleteProduct(@PathVariable Long id) {
+<b class="nc">&nbsp;        productService.deleteProduct(id);</b>
+<b class="nc">&nbsp;        return ResponseEntity.noContent().build();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // PATCH para actualizar un Product por id
+&nbsp;    @PatchMapping(&quot;/{id}&quot;)
+&nbsp;    @RequiresPrivilege(&quot;admin&quot;)
+&nbsp;    public ResponseEntity&lt;ProductDTO&gt; updateProduct(
+&nbsp;            @PathVariable Long id,
+&nbsp;            @RequestBody ProductCreateDTO productUpdateData
+&nbsp;    ) {
+<b class="nc">&nbsp;        ProductDTO updatedProduct = productService.updateProduct(id, productUpdateData);</b>
+<b class="nc">&nbsp;        return ResponseEntity.ok(updatedProduct);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //GET para obtener productos con stock mayor a cero
+&nbsp;    @GetMapping(&quot;/in_stock&quot;)
+&nbsp;    @RequiresPrivilege(&quot;user&quot;)
+&nbsp;    public ResponseEntity&lt;List&lt;ProductDTO&gt;&gt; getProductsInStock() {
+<b class="nc">&nbsp;        return ResponseEntity.ok(productService.getProductsInStock());</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-11-25 23:48</div>
+</div>
+</body>
+</html>
